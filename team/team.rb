@@ -1,11 +1,12 @@
 class Team
-  attr_reader :team_name, :players, :coach
-  attr_writer :coach
+  attr_reader :team_name, :players, :coach, :points
+  attr_writer :coach, :points
 
-  def initialize(team_name, players, coach)
+  def initialize(team_name, players, coach, points)
     @team_name = team_name
     @players = players
     @coach = coach
+    @points = points
   end
 
   # def team_name()
@@ -30,6 +31,10 @@ class Team
 
   def on_the_team(player)
     @players.include?(player) 
+  end
+
+  def update_points(win_or_loss)
+    @points += 4 if win_or_loss == "win"
   end
 
 end
