@@ -48,4 +48,8 @@ class TestLibrary < Minitest::Test
     assert_equal(4, @library.add_new_book("book4").length)
   end
 
+  def test_change_book_details
+    new_details = @library.change_book_details("book1", "Tom", "19/5/17")
+    assert_equal(@books[0], new_details)
+  end
 end

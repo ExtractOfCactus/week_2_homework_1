@@ -32,5 +32,17 @@ class Library
     return @books.push(new_book)
   end
 
-
+  def change_book_details(title, student_name, date)
+    for book in @books
+      if book[:title] == title
+        book[:rental_details][:student_name] = student_name if 
+        book[:rental_details][:date]
+        return book
+      end
+    end
+    # rental_details_by_title(title)[:student_name] = student_name
+    # rental_details_by_title(title)[:date] = date
+  
+  end
+  
 end
