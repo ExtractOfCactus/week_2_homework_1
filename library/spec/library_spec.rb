@@ -4,7 +4,7 @@ require_relative('../library.rb')
 class TestLibrary < Minitest::Test
 
   def setup
-    @library = Library.new([
+    @library = Library.new(@books = [
       {
         title: "book1",
         rental_details: {
@@ -31,7 +31,12 @@ class TestLibrary < Minitest::Test
   end
 
   def test_all_books
-    
+    assert_equal(@books, @library.all_books())
+  end
+
+  def test_find_book_by_title
+    result = @library.find_book_by_title("book2")
+    assert_equal(@books[1], result)
   end
 
 
